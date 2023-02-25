@@ -9,7 +9,7 @@ const port = 6969;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static(__dirname+'/public'));
 
 //////////////////////////////////////////// .  MONGODB CONNECTION    ///////////////////////
 mongoose.set('strictQuery', true);
@@ -49,7 +49,7 @@ const student = mongoose.model('student', studentSchema);
 const stuList = mongoose.model('stuList', stuListSchema);
 /////////////////////////////////////////// .   MODEL FORMATIONS DONE    ////////////////////////////////
 app.get("/", (req, res) => {
-    res.render(__dirname + "/public/index.ejs");
+    res.render(__dirname + "/public/signup-signin/signin.ejs");
 })
 
 app.listen(port, () => {
